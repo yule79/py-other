@@ -1,2 +1,2 @@
 import random
-import streamlit as st
+import streamlit
