@@ -13,9 +13,10 @@ w = st.number_input('体重(kg)', min_value=1.0)
 o = st.selectbox(label="年代を選択", options=["中学生","高校生", "成人"])
 s = st.selectbox(label="性別を選択", options=["男性", "女性"])
 
+bmi = bmi(h, w)
+laurel = laurel(h,w)
+
 if st.button('BMIを計算'):
-    bmi = bmi(h, w)
-    laurel = laurel(h,w)
     if o=="中学生":
         if laurel<=114:
             st.info("やせている")
@@ -35,3 +36,11 @@ if st.button('BMIを計算'):
         st.write(f'あなたのBMIは {bmi:.2f} ')
         if bmi<=25 and bmi>=18:
                 st.info("平均的です")
+
+
+if o=="高校生" and "成人":
+    if st.button("BMIを保存"):
+        with open('bmi.txt','a',encoding='utf-8') as file:
+            file.write(f'{bmi:.2f}')
+            file.write(' '+'\n')
+            st.info("保存しました")
