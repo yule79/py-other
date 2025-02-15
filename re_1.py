@@ -18,7 +18,7 @@ def e():
         print("回文ではありません")
 #
 def g():
-    for f in range(1,10):
+    for f in range(1,11):
         if f%2==0 and f%3==0:
             print("FizzBuzz")
         elif f%2==0:
